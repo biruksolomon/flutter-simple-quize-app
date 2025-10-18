@@ -15,7 +15,7 @@ class StartScreen extends StatelessWidget {
           Image.asset("assets/images/image.png",width: 250,)),
           SizedBox(height: 20,),
           Text(
-              "Welcome to Flutter Quizes",
+              "Welcome to Flutter Quizzes",
             style: TextStyle(
               fontSize: 30,
               color: Color.fromARGB(255, 41, 130, 227)

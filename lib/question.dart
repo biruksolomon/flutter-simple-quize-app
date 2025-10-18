@@ -3,6 +3,10 @@ import 'package:sample_quize_app/data/questions.dart';
 import 'answer_button.dart';
 
 class Question extends StatefulWidget{
+
+  void Function(String answer) choose_answer;
+  Question(this.choose_answer,{super.key});
+
   @override
   State<Question> createState() {
     return _QuestionState();
@@ -12,7 +16,8 @@ class _QuestionState extends State<Question>{
 
   var CurrentQuestionIndex=0;
 
-  void answerQuestion(){
+  void answerQuestion(String answer){
+    widget.choose_answer(answer);
     setState(() {
       CurrentQuestionIndex++;
     });
@@ -40,7 +45,9 @@ class _QuestionState extends State<Question>{
               textAlign:TextAlign.center ,
             ),
             ...currentquestion.getShuffledAnswer().map((answer){
-              return AnswerButton(text: answer, onTap: answerQuestion);
+              return AnswerButton(text: answer, onTap: (){
+                answerQuestion(answer);
+              });
       }
             )],
         ),
