@@ -9,10 +9,18 @@ class Question extends StatefulWidget{
   }
 }
 class _QuestionState extends State<Question>{
+
+  var CurrentQuestionIndex=0;
+
+  void answerQuestion(){
+    setState(() {
+      CurrentQuestionIndex++;
+    });
+  }
   @override
   Widget build(context) {
 
-    final currentquestion=questions[0] ;
+    final currentquestion=questions[CurrentQuestionIndex] ;
     return Scaffold(body:
       SizedBox(
         width: double.infinity,
@@ -32,7 +40,7 @@ class _QuestionState extends State<Question>{
               textAlign:TextAlign.center ,
             ),
             ...currentquestion.getShuffledAnswer().map((answer){
-              return AnswerButton(text: answer, onTap: (){});
+              return AnswerButton(text: answer, onTap: answerQuestion);
       }
             )],
         ),
