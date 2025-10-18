@@ -18,7 +18,7 @@ class CustomBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white
           )
           ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 41, 130, 227),
     );
   }
 }

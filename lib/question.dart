@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sample_quize_app/data/questions.dart';
+import 'answer_button.dart';
 
 class Question extends StatefulWidget{
   @override
@@ -9,38 +11,33 @@ class Question extends StatefulWidget{
 class _QuestionState extends State<Question>{
   @override
   Widget build(context) {
+
+    final currentquestion=questions[0] ;
     return Scaffold(body:
       SizedBox(
         width: double.infinity,
-        child: Column(
+        child: Container(
+          margin: EdgeInsets.all(40),
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: 20,
           children: [
             Text(
-              "Question..."
+              currentquestion.question,
+              style: TextStyle(
+                color: Color.fromARGB(255, 41, 130, 227),
+                fontSize: 35,
+              ),
+              textAlign:TextAlign.center ,
             ),
-            ElevatedButton(onPressed: (){},
-                child: Text(
-                  "Answer-1"
-                )
-            ),
-            ElevatedButton(onPressed: (){},
-                child:Text(
-                  "Answer-2"
-                )
-            ),
-            ElevatedButton(onPressed: (){},
-                child: Text(
-                  "Answer-3"
-                )
-            ),
-            ElevatedButton(onPressed: (){},
-                child: Text(
-                  "Answer-4"
-                )
-            )
-          ],
+            ...currentquestion.getShuffledAnswer().map((answer){
+              return AnswerButton(text: answer, onTap: (){});
+      }
+            )],
         ),
       ),
+    )
     );
   }
 }

@@ -18,20 +18,20 @@ class StartScreen extends StatelessWidget {
               "Welcome to Flutter Quizes",
             style: TextStyle(
               fontSize: 30,
-              color: Colors.lightBlueAccent
+              color: Color.fromARGB(255, 41, 130, 227)
             ),
           ),
           SizedBox(height: 25,),
           OutlinedButton.icon(
               onPressed: startQuize,
               style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.lightBlueAccent
+                backgroundColor: Color.fromARGB(255, 41, 130, 227),
               ),
 
               label:Text(
                 "Start Quize",
                 style: TextStyle(
-                  color: Colors.blue,fontSize: 15
+                  color: Colors.white,fontSize: 20
                 ),
               ),
             icon: Icon(Icons.arrow_forward_sharp),
