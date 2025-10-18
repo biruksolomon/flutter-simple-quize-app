@@ -12,7 +12,7 @@ class CustomBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-          "Sample Flutter Quize App",
+          "Simple Flutter Quize App",
           style: TextStyle(
             fontSize: 25.0,
             color: Colors.white
