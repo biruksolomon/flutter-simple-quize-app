@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:sample_quize_app/questions.dart';
+import 'package:sample_quize_app/question.dart';
 import 'package:sample_quize_app/start_screen.dart';
 
 import 'custom_app_bar.dart';
 
-class Quize extends StatefulWidget{
+class Quiz extends StatefulWidget{
   @override
-  State<Quize> createState() {
+  State<Quiz> createState() {
 
-    return _QuizeState();
+    return _QuizState();
   }
 }
-class _QuizeState extends State<Quize>{
+class _QuizState extends State<Quiz>{
   Widget ? activeScreen;
 
   @override
@@ -22,7 +22,7 @@ class _QuizeState extends State<Quize>{
 
   void switchscreen(){
     setState(() {
-      activeScreen=Questions();
+      activeScreen=Question();
     });
   }
 
