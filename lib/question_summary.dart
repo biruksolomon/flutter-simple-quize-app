@@ -15,7 +15,8 @@ class QuestionSummary extends StatelessWidget{
             Text(
                 ((data['question_index']as int)+1).toString()
             ),
-            Column(
+            Expanded(
+            child: Column(
               children: [
                 Text(
                   data['question'] as String
@@ -28,7 +29,7 @@ class QuestionSummary extends StatelessWidget{
                   data['correct_answer'] as String
                 )
               ],
-            )
+            ))
           ],
         );
       }).toList(),
