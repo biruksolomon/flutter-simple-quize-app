@@ -20,7 +20,7 @@ class _QuizState extends State<Quiz>{
 
   @override
   void initState() {
-    activeScreen=StartScreen(switchscreen);
+    activeScreen=StartScreen(Switchscreen);
     super.initState();
   }
 
@@ -28,13 +28,13 @@ class _QuizState extends State<Quiz>{
     selectedAnswers.add(answer);
     if(selectedAnswers.length==questions.length){
       setState(() {
-        selectedAnswers=[];
-        activeScreen=ResultScreen();
+        // selectedAnswers=[];
+        activeScreen=ResultScreen(chosenAnswers: selectedAnswers,);
       });
     }
   }
 
-  void switchscreen(){
+  void Switchscreen(){
     setState(() {
       activeScreen=Question(chooseAnswer);
     });

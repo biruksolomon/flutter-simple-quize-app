@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:sample_quize_app/data/questions.dart';
+import 'package:sample_quize_app/question_summary.dart';
 
 class ResultScreen extends StatelessWidget{
+
+  ResultScreen({super.key,required this.chosenAnswers,});
+   List<String> chosenAnswers;
+
+   List<Map<String, Object>> getSummaryData(){
+     final List<Map<String,Object>> summary=[];
+
+     for(var i=0; i<questions.length;i++){
+       summary.add({
+         'question_index':i,
+         'question':questions[i].question,
+         'correct_answer':questions[i].answers[0],
+         'user_answer':chosenAnswers[i]
+       });
+     }
+     return summary;
+   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,9 +34,7 @@ class ResultScreen extends StatelessWidget{
               "You Answered X from Y Questions"
             ),
             SizedBox(height: 20,),
-            Text(
-              "List of Answers..."
-            ),
+            QuestionSummary(summaryData: getSummaryData()),
             SizedBox(height: 20,),
             TextButton(
                 onPressed: (){},
