@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample_quize_app/data/questions.dart';
 import 'answer_button.dart';
 
+
 class Question extends StatefulWidget{
 
   void Function(String answer) choose_answer;
