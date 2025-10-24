@@ -6,8 +6,9 @@ import 'package:sample_quize_app/question_summary.dart';
 class ResultScreen extends StatelessWidget{
 
 
-  ResultScreen({super.key,required this.chosenAnswers,});
+  ResultScreen({super.key,required this.chosenAnswers,required this.restart});
   List<String> chosenAnswers;
+  void Function() restart;
    List<Map<String, Object>> getSummaryData(){
      final List<Map<String,Object>> summary=[];
 
@@ -58,7 +59,7 @@ class ResultScreen extends StatelessWidget{
             QuestionSummary(summaryData: getSummaryData()),
             SizedBox(height: 40,),
             TextButton.icon(
-                onPressed: (){},
+                onPressed: restart,
               style: TextButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 41, 130, 227),
               ),

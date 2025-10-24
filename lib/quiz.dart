@@ -24,12 +24,18 @@ class _QuizState extends State<Quiz>{
     super.initState();
   }
 
+  void restartscreen(){
+    setState(() {
+      activeScreen=StartScreen(Switchscreen);
+    });
+  }
+
   void chooseAnswer(String answer){
     selectedAnswers.add(answer);
     if(selectedAnswers.length==questions.length){
       setState(() {
         // selectedAnswers=[];
-        activeScreen=ResultScreen(chosenAnswers: selectedAnswers,);
+        activeScreen=ResultScreen(chosenAnswers: selectedAnswers,restart: restartscreen,);
       });
     }
   }
