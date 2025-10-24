@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:sample_quize_app/data/questions.dart';
 import 'package:sample_quize_app/question_summary.dart';
@@ -34,6 +34,10 @@ class ResultScreen extends StatelessWidget{
     final UserCorrectAnswer=SummaryData.where((data){
       return data['user_answer']==data['correct_answer'];
     }).length;
+
+
+
+    bool ispassed = UserCorrectAnswer >= numTotalQuestions/2;
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -43,16 +47,29 @@ class ResultScreen extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "You Answered $UserCorrectAnswer from $numTotalQuestions Questions"
+              ispassed ? "Congratulation You Answered $UserCorrectAnswer from $numTotalQuestions Questions":
+              "Unfortunately, you only answered $UserCorrectAnswer out of $numTotalQuestions questions correctly. Keep trying!",
+              style: TextStyle(
+                  fontSize: 20,
+                  color: ispassed ? Color.fromARGB(255, 41, 130, 227):Colors.red
+              ),
             ),
             SizedBox(height: 20,),
             QuestionSummary(summaryData: getSummaryData()),
-            SizedBox(height: 20,),
-            TextButton(
+            SizedBox(height: 40,),
+            TextButton.icon(
                 onPressed: (){},
-                child: Text(
-                  "Restart The Quiz"
-                )
+              style: TextButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 41, 130, 227),
+              ),
+                label: Text(
+                  "Restart The Quiz",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white
+                  ),
+                ),
+              icon: Icon(Icons.restore_outlined),
             )
           ],
         ),
